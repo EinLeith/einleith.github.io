@@ -72,8 +72,6 @@ h1 {
     background-color: #555;
 }
 
-.github-logo {
-    width: 20px;
-    height: 20px;
+.github-button i {
     margin-right: 10px;
 }
