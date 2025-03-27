@@ -6,7 +6,7 @@ body {
     font-size: 16px;
     color: #333;
     font-family: 'Poppins', sans-serif;
-    background: #f0f0f0;
+    background: #f8f5f2;
     margin: 0;
     padding: 20px;
     height: 100vh;
@@ -25,13 +25,13 @@ body {
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #444;
+    color: #4a3f35;
 }
 
 h2 {
     font-size: 18px;
     margin-bottom: 15px;
-    color: #666;
+    color: #6b5b53;
 }
 
 .option {
@@ -56,7 +56,7 @@ textarea, input[type="file"] {
 
 .btn {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #d35400;
     color: white;
     border: none;
     border-radius: 10px;
@@ -70,7 +70,7 @@ textarea, input[type="file"] {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #a84300;
 }
 
 .github-btn {
@@ -95,5 +95,5 @@ pre {
     max-height: 200px;
     overflow-y: auto;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px; /* Adjust font size to ensure it is not zoomed in */
+    font-size: 14px;
 }
