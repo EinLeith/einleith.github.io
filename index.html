@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- Mahlzeit Popup -->
-    <div class="popup">Mahlzeit! ☕🍪</div>
+    <div id="popup" class="popup">Mahlzeit! ☕🍪</div>
 
     <div class="container">
         <h1>Excel Data to Text Formatter</h1>
@@ -40,5 +40,28 @@
             </a>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        function movePopup() {
+            const popup = document.getElementById("popup");
+            const positions = ["top-left", "top-right", "bottom-left", "bottom-right"];
+            const randomPos = positions[Math.floor(Math.random() * positions.length)];
+            
+            popup.className = "popup " + randomPos;
+            
+            setTimeout(movePopup, 5000); // Alle 5 Sekunden bewegt sich das Popup
+        }
+
+        setTimeout(() => {
+            document.getElementById("popup").classList.add("show");
+            setTimeout(() => {
+                document.getElementById("popup").classList.remove("show");
+                movePopup();
+            }, 3000);
+        }, 1000);
+    </script>
 </body>
 </html>
