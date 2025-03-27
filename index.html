@@ -3,37 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zodiac Sign Information</title>
+    <title>CSV to Text Formatter</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Find Your Zodiac Sign</h1>
-        <div class="buttons">
-            <button class="month-btn" data-month="1">January</button>
-            <button class="month-btn" data-month="2">February</button>
-            <button class="month-btn" data-month="3">March</button>
-            <button class="month-btn" data-month="4">April</button>
-            <button class="month-btn" data-month="5">May</button>
-            <button class="month-btn" data-month="6">June</button>
-            <button class="month-btn" data-month="7">July</button>
-            <button class="month-btn" data-month="8">August</button>
-            <button class="month-btn" data-month="9">September</button>
-            <button class="month-btn" data-month="10">October</button>
-            <button class="month-btn" data-month="11">November</button>
-            <button class="month-btn" data-month="12">December</button>
-        </div>
-        <div class="result">
-            <p id="zodiac-info"></p>
-        </div>
+<div class="container">
+    <h1>CSV to Text Formatter</h1>
+    <form id="upload-form">
+        <input type="file" id="csvFile" accept=".csv" />
+        <button type="submit">Upload</button>
+    </form>
+    <div id="formatted-text-container">
+        <h2>Formatted Text</h2>
+        <pre id="formatted-text"></pre>
     </div>
-    <div class="github-button">
-        <a href="https://github.com/einleith" target="_blank">
-            <i class="fab fa-github"></i>
-            Get the source
-        </a>
-    </div>
-    <script src="script.js"></script>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

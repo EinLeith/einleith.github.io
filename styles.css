@@ -1,77 +1,53 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f4f4f4;
     margin: 0;
+    padding: 20px;
 }
 
 .container {
-    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
     background: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    color: #333;
-}
-
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.month-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    margin: 5px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.month-btn:hover {
-    background-color: #45a049;
-}
-
-.result {
-    margin-top: 20px;
-}
-
-#zodiac-info {
-    font-size: 18px;
-    color: #555;
-}
-
-.github-button {
-    margin-top: 20px;
+h1, h2 {
     text-align: center;
 }
 
-.github-button a {
-    display: inline-flex;
+form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+button {
     padding: 10px 20px;
-    border-radius: 20px;
-    transition: background-color 0.3s;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.github-button a:hover {
-    background-color: #555;
+button:hover {
+    background-color: #0056b3;
 }
 
-.github-button i {
-    margin-right: 10px;
+#formatted-text-container {
+    margin-top: 20px;
+}
+
+pre {
+    background: #e4e4e4;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
 }
