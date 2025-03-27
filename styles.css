@@ -95,4 +95,5 @@ pre {
     max-height: 200px;
     overflow-y: auto;
     font-family: 'Poppins', sans-serif;
+    font-size: 14px; /* Adjust font size to ensure it is not zoomed in */
 }
