@@ -23,12 +23,22 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
 function convertCSVToText(csvData) {
     const rows = csvData.split('\n').map(row => row.trim()).filter(row => row.length > 0);
     const headers = rows[0].split(',').map(header => header.trim());
-    let text = headers.join('\t') + '\n';
+    let text = '| ' + headers.join(' | ') + ' |\n';
+    text += '|' + headers.map(() => '---').join('|') + '|\n';
 
     rows.slice(1).forEach(row => {
         const columns = row.split(',').map(column => column.trim());
-        text += columns.join('\t') + '\n';
+        text += '| ' + columns.join(' | ') + ' |\n';
     });
 
     return text;
 }
+
+document.getElementById('copy-button').addEventListener('click', function () {
+    const formattedText = document.getElementById('formatted-text').textContent;
+    navigator.clipboard.writeText(formattedText).then(() => {
+        alert('Text copied to clipboard');
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+});
