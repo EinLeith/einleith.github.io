@@ -7,7 +7,7 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
         const reader = new FileReader();
         reader.onload = function (event) {
             const data = new Uint8Array(event.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
+            const workbook = XLSX.read(data, { type: 'array', cellDates: true });
             const firstSheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[firstSheetName];
             const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false, dateNF: 'yyyy-mm-dd' });
@@ -31,7 +31,12 @@ function convertToMarkdownTable(data) {
 
         for (let i = 1; i < data.length; i++) {
             const row = data[i];
-            text += '| ' + row.join(' | ') + ' |\n';
+            text += '| ' + row.map((cell, index) => {
+                if (index === 6 && cell instanceof Date) { // 7. Spalte (index 6)
+                    return cell.toISOString().split('T')[0];
+                }
+                return cell;
+            }).join(' | ') + ' |\n';
         }
     }
 
