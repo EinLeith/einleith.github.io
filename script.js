@@ -37,8 +37,9 @@ function convertToMarkdownTable(data) {
         text += headerRow + separatorRow;
 
         for (let i = 1; i < data.length; i++) {
-            const row = data[i];
-            text += '| ' + row.join(' | ') + ' |\n';
+            if (data[i].length) {
+                text += '| ' + data[i].join(' | ') + ' |\n';
+            }
         }
     }
 
@@ -46,31 +47,19 @@ function convertToMarkdownTable(data) {
 }
 
 function convertPastedDataToMarkdownTable(data) {
-    const rows = data.trim().split('\n').map(row => row.split('\t'));
-    let text = '';
-
-    if (rows.length > 0) {
-        const headers = rows[0];
-        const headerRow = '| ' + headers.join(' | ') + ' |\n';
-        const separatorRow = '| ' + headers.map(() => '---').join(' | ') + ' |\n';
-        text += headerRow + separatorRow;
-
-        for (let i = 1; i < rows.length; i++) {
-            const row = rows[i];
-            text += '| ' + row.join(' | ') + ' |\n';
-        }
-    }
-
-    return text;
+    const rows = data.trim().split('\n');
+    const formattedRows = rows.map(row => '| ' + row.split('\t').join(' | ') + ' |');
+    const headers = formattedRows[0];
+    const separatorRow = '| ' + headers.split(' | ').map(() => '---').join(' | ') + ' |';
+    formattedRows.splice(1, 0, separatorRow);
+    return formattedRows.join('\n');
 }
 
 document.getElementById('copy-button').addEventListener('click', function () {
     const formattedText = document.getElementById('formatted-text').textContent;
-    const textArea = document.createElement('textarea');
-    textArea.value = formattedText;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-    alert('Text copied to clipboard');
+    navigator.clipboard.writeText(formattedText).then(function () {
+        alert('Text copied to clipboard');
+    }, function (err) {
+        console.error('Could not copy text: ', err);
+    });
 });
