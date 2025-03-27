@@ -10,7 +10,7 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
             const workbook = XLSX.read(data, { type: 'array' });
             const firstSheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[firstSheetName];
-            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false, dateNF: 'yyyy-mm-dd' });
             const formattedText = convertToMarkdownTable(jsonData);
             document.getElementById('formatted-text').textContent = formattedText;
         };
