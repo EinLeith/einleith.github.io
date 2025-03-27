@@ -78,7 +78,7 @@ textarea {
 }
 
 #formatted-text-container {
-    margin-top: 7px;
+    margin-top: 20px;
 }
 
 pre {
@@ -92,7 +92,12 @@ pre {
 }
 
 .weather-app-header {
-    margin: 0 -30px 20px -30px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: calc(100% - 30px);
     border: 1px solid black;
     background-color: black;
     border-radius: 7px 7px 0 0;
