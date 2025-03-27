@@ -3,11 +3,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 25px;
+    font-size: 16px;
     color: #333;
-    font-family: "Heebo", sans-serif;
-    font-weight: 300;
-    background: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    background: #f0f0f0;
     margin: 0;
     padding: 20px;
     height: 100vh;
@@ -15,17 +14,24 @@ body {
 
 .container {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 100%;
     text-align: center;
-    position: relative;
 }
 
-h1, h2 {
-    color: #333;
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #666;
 }
 
 .option {
@@ -38,15 +44,14 @@ form {
     align-items: center;
 }
 
-textarea {
+textarea, input[type="file"] {
     width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
     resize: none;
-    font-family: "Heebo", sans-serif;
 }
 
 .btn {
@@ -54,7 +59,7 @@ textarea {
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
@@ -83,34 +88,11 @@ textarea {
 
 pre {
     background: #e4e4e4;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 10px;
     white-space: pre-wrap;
     text-align: left;
     max-height: 200px;
     overflow-y: auto;
-}
-
-.weather-app-header {
-    position: absolute;
-    top: -10px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: calc(100% + 40px);
-    height: 40px; /* Adjust height to match the container's padding */
-    border: 1px solid black;
-    background-color: black;
-    border-radius: 10px 10px 0 0;
-    font-size: 12px;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    cursor: grab;
-    box-sizing: border-box;
-}
-
-.fa-circle {
-    color: #939aa9;
-    margin-right: 5px;
+    font-family: 'Poppins', sans-serif;
 }
