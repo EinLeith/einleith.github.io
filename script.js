@@ -40,9 +40,11 @@ function convertToMarkdownTable(data) {
 
 document.getElementById('copy-button').addEventListener('click', function () {
     const formattedText = document.getElementById('formatted-text').textContent;
-    navigator.clipboard.writeText(formattedText).then(() => {
-        alert('Text copied to clipboard');
-    }).catch(err => {
-        console.error('Failed to copy text: ', err);
-    });
+    const textArea = document.createElement("textarea");
+    textArea.value = formattedText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+    alert('Text copied to clipboard');
 });
