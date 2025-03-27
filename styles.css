@@ -1,11 +1,18 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    margin: 0;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    font-size: 25px;
+    color: #939aa9;
+    font-family: "Heebo", sans-serif;
+    font-weight: 300;
+    background: linear-gradient(
+        rgba(254, 243, 255, 1) 34%,
+        rgba(231, 253, 255, 1) 67%
+    );
+    margin: 0;
+    padding: 20px;
     height: 100vh;
 }
 
@@ -41,7 +48,7 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
     resize: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Heebo", sans-serif;
 }
 
 .btn {
