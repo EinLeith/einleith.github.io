@@ -43,6 +43,7 @@ button:hover {
 
 #formatted-text-container {
     margin-top: 20px;
+    text-align: center;
 }
 
 pre {
@@ -50,4 +51,5 @@ pre {
     padding: 10px;
     border-radius: 5px;
     white-space: pre-wrap;
+    text-align: left;
 }
