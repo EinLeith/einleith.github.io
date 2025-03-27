@@ -66,11 +66,11 @@ function convertPastedDataToMarkdownTable(data) {
 
 document.getElementById('copy-button').addEventListener('click', function () {
     const formattedText = document.getElementById('formatted-text').textContent;
-    const textArea = document.createElement("textarea");
+    const textArea = document.createElement('textarea');
     textArea.value = formattedText;
     document.body.appendChild(textArea);
     textArea.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     document.body.removeChild(textArea);
     alert('Text copied to clipboard');
 });
