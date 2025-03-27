@@ -10,6 +10,9 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <!-- Mahlzeit Popup -->
+    <div id="popup" class="popup">Mahlzeit! ☕🍪</div>
+
     <div class="container">
         <h1>Excel Data to Text Formatter</h1>
         <div class="option">
@@ -37,7 +40,19 @@
             </a>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        // Pop-up Animation
+        setTimeout(() => {
+            document.getElementById("popup").classList.add("show");
+            setTimeout(() => {
+                document.getElementById("popup").classList.remove("show");
+            }, 4000);
+        }, 1000);
+    </script>
+
 </body>
 </html>
