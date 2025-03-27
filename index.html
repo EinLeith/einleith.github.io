@@ -13,20 +13,20 @@
             <h2>Import .xlsx File</h2>
             <form id="upload-form">
                 <input type="file" id="xlsxFile" accept=".xlsx" />
-                <button type="submit">Upload</button>
+                <button type="submit" class="btn">Upload</button>
             </form>
         </div>
         <div class="option">
             <h2>Paste Data</h2>
             <form id="paste-form">
                 <textarea id="excelData" placeholder="Paste your Excel data here"></textarea>
-                <button type="submit">Format Data</button>
+                <button type="submit" class="btn">Format Data</button>
             </form>
         </div>
         <div id="formatted-text-container">
             <h2>Formatted Text</h2>
             <pre id="formatted-text"></pre>
-            <button id="copy-button">Copy Text</button>
+            <button id="copy-button" class="btn">Copy Text</button>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
