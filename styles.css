@@ -49,9 +49,11 @@ body {
     background-color: #3a221c;
 }
 
-/* Mahlzeit Popup */
+/* Mahlzeit Popup (Fixed Top Right) */
 .popup {
     position: fixed;
+    top: 15px;
+    right: 15px;
     background: #b08a6d;
     color: white;
     padding: 15px 25px;
@@ -60,14 +62,13 @@ body {
     font-size: 18px;
     font-weight: 600;
     opacity: 0;
-    animation: showPopup 20s infinite;
+    animation: fadePopup 6s infinite ease-in-out;
 }
 
-/* Popup Animation */
-@keyframes showPopup {
-    0% { opacity: 0; transform: translateX(-50%); top: 10%; left: 50%; }
-    10% { opacity: 1; }
-    50% { opacity: 1; }
-    90% { opacity: 0; }
-    100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+/* Popup Fade Animation */
+@keyframes fadePopup {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
 }
