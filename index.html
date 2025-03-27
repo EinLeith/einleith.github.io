@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XLSX to Text Formatter</title>
+    <title>Excel Data to Text Formatter</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>XLSX to Text Formatter</h1>
-        <form id="upload-form">
-            <input type="file" id="xlsxFile" accept=".xlsx" />
-            <button type="submit">Upload</button>
-        </form>
+        <h1>Excel Data to Text Formatter</h1>
+        <div class="option">
+            <h2>Import .xlsx File</h2>
+            <form id="upload-form">
+                <input type="file" id="xlsxFile" accept=".xlsx" />
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <div class="option">
+            <h2>Paste Data</h2>
+            <form id="paste-form">
+                <textarea id="excelData" placeholder="Paste your Excel data here"></textarea>
+                <button type="submit">Format Data</button>
+            </form>
+        </div>
         <div id="formatted-text-container">
             <h2>Formatted Text</h2>
             <pre id="formatted-text"></pre>
