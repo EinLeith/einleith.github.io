@@ -24,6 +24,7 @@ body {
     max-width: 600px;
     width: 100%;
     text-align: center;
+    position: relative;
 }
 
 h1, h2 {
@@ -91,4 +92,20 @@ pre {
     text-align: left;
     max-height: 200px;
     overflow-y: auto;
+}
+
+.weather-app-header {
+    margin: 0 -30px 20px -30px;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 7px 7px 0 0;
+    font-size: 12px;
+    padding: 0 0 5px 0;
+    text-align: left;
+    cursor: grab;
+}
+
+.fa-circle {
+    color: #939aa9;
+    padding: 10px 0 2px 5px;
 }
