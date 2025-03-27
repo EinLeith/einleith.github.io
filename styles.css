@@ -1,41 +1,25 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 16px;
-    color: #333;
-    font-family: 'Poppins', sans-serif;
-    background: #f8f5f2;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f5e1c8, #d2b48c);
     margin: 0;
     padding: 20px;
-    height: 100vh;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="10" y="20" font-size="16" fill="%234a2c2a">☕</text><text x="50" y="80" font-size="16" fill="%234a2c2a">🍪</text></svg>');
+    background-size: 120px;
+    color: #4a2c2a;
 }
 
 .container {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
     text-align: center;
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #4a3f35;
-}
-
-h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #6b5b53;
-}
-
-.option {
-    margin-bottom: 20px;
+    color: #4a2c2a;
 }
 
 form {
@@ -44,56 +28,38 @@ form {
     align-items: center;
 }
 
-textarea, input[type="file"] {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    resize: none;
+input[type="file"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #d2b48c;
+    border-radius: 5px;
+    background: #f5e1c8;
+    color: #4a2c2a;
 }
 
-.btn {
+button {
     padding: 10px 20px;
-    background-color: #d35400;
+    background-color: #a6735a;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    transition: 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #a84300;
-}
-
-.github-btn {
-    background-color: #333;
-    margin-top: 20px;
-}
-
-.github-btn:hover {
-    background-color: #000;
+button:hover {
+    background-color: #8b5e48;
 }
 
 #formatted-text-container {
     margin-top: 20px;
+    text-align: center;
 }
 
 pre {
-    background: #e4e4e4;
-    padding: 15px;
-    border-radius: 10px;
+    background: #e4d0b8;
+    padding: 10px;
+    border-radius: 5px;
     white-space: pre-wrap;
     text-align: left;
-    max-height: 200px;
-    overflow-y: auto;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
 }
