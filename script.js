@@ -7,10 +7,10 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
         const reader = new FileReader();
         reader.onload = function (event) {
             const data = new Uint8Array(event.target.result);
-            const workbook = XLSX.read(data, { type: 'array', cellDates: true });
+            const workbook = XLSX.read(data, { type: 'array' });
             const firstSheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[firstSheetName];
-            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false, dateNF: 'yyyy-mm-dd' });
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
             const formattedText = convertToMarkdownTable(jsonData);
             document.getElementById('formatted-text').textContent = formattedText;
         };
@@ -18,6 +18,13 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
     } else {
         alert('Please upload an XLSX file.');
     }
+});
+
+document.getElementById('paste-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const excelData = document.getElementById('excelData').value;
+    const formattedText = convertPastedDataToMarkdownTable(excelData);
+    document.getElementById('formatted-text').textContent = formattedText;
 });
 
 function convertToMarkdownTable(data) {
@@ -31,12 +38,26 @@ function convertToMarkdownTable(data) {
 
         for (let i = 1; i < data.length; i++) {
             const row = data[i];
-            text += '| ' + row.map((cell, index) => {
-                if (index === 6 && cell instanceof Date) { // 7. Spalte (index 6)
-                    return cell.toISOString().split('T')[0];
-                }
-                return cell;
-            }).join(' | ') + ' |\n';
+            text += '| ' + row.join(' | ') + ' |\n';
+        }
+    }
+
+    return text;
+}
+
+function convertPastedDataToMarkdownTable(data) {
+    const rows = data.trim().split('\n').map(row => row.split('\t'));
+    let text = '';
+
+    if (rows.length > 0) {
+        const headers = rows[0];
+        const headerRow = '| ' + headers.join(' | ') + ' |\n';
+        const separatorRow = '| ' + headers.map(() => '---').join(' | ') + ' |\n';
+        text += headerRow + separatorRow;
+
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            text += '| ' + row.join(' | ') + ' |\n';
         }
     }
 
