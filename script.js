@@ -10,8 +10,8 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
             const workbook = XLSX.read(data, { type: 'array' });
             const firstSheetName = workbook.SheetNames[0];
             const worksheet = workbook.Sheets[firstSheetName];
-            const csvData = XLSX.utils.sheet_to_csv(worksheet);
-            const formattedText = convertCSVToText(csvData);
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+            const formattedText = convertToMarkdownTable(jsonData);
             document.getElementById('formatted-text').textContent = formattedText;
         };
         reader.readAsArrayBuffer(file);
@@ -20,16 +20,20 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
     }
 });
 
-function convertCSVToText(csvData) {
-    const rows = csvData.split('\n').map(row => row.trim()).filter(row => row.length > 0);
-    const headers = rows[0].split(',').map(header => header.trim());
-    let text = '| ' + headers.join(' | ') + ' |\n';
-    text += '|' + headers.map(() => '---').join('|') + '|\n';
+function convertToMarkdownTable(data) {
+    let text = '';
 
-    rows.slice(1).forEach(row => {
-        const columns = row.split(',').map(column => column.trim());
-        text += '| ' + columns.join(' | ') + ' |\n';
-    });
+    if (data.length > 0) {
+        const headers = data[0];
+        const headerRow = '| ' + headers.join(' | ') + ' |\n';
+        const separatorRow = '| ' + headers.map(() => '---').join(' | ') + ' |\n';
+        text += headerRow + separatorRow;
+
+        for (let i = 1; i < data.length; i++) {
+            const row = data[i];
+            text += '| ' + row.join(' | ') + ' |\n';
+        }
+    }
 
     return text;
 }
