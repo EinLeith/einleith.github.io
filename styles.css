@@ -1,47 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #d2a679; /* Warm cappuccino tone */
-    margin: 0;
-    padding: 20px;
-    color: #4a2c2a;
+:root {
+    --background: #e6c9a8; /* Warm cappuccino */
+    --container-bg: #f7efe5; /* Creamy white */
+    --text-color: #5a3e2b; /* Rich coffee brown */
+    --button-color: #a67c52; /* Coffee caramel */
+    --button-hover: #8b5e3c;
+    --shadow: rgba(0, 0, 0, 0.15);
 }
 
-/* Container */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Container */
 .container {
     max-width: 600px;
-    margin: 0 auto;
-    background: rgba(255, 235, 205, 0.95);
-    padding: 25px;
+    background: var(--container-bg);
+    padding: 30px;
     border-radius: 15px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 25px var(--shadow);
     text-align: center;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 14px;
+    color: #7d5c44;
+    margin-bottom: 20px;
 }
 
 /* Buttons */
 .custom-btn {
     padding: 12px 24px;
-    background-color: #a6735a;
+    background-color: var(--button-color);
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 10px var(--shadow);
     transition: 0.3s ease;
-    margin: 8px;
+    margin: 10px;
 }
 
 .custom-btn:hover {
-    background-color: #8b5e48;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--button-hover);
+    box-shadow: 0px 6px 15px var(--shadow);
 }
 
 /* GitHub Button */
 .github-btn {
-    background-color: #4a2c2a;
+    background-color: #5a3e2b;
     color: white;
 }
 
@@ -49,23 +68,41 @@ body {
     background-color: #3a221c;
 }
 
-/* Mahlzeit Popup (Fixed Top Right) */
+/* Inputs & Textarea */
+input, textarea {
+    border: 2px solid #d1b899;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 8px;
+    background: #fffaf3;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--button-hover);
+    box-shadow: 0px 4px 12px var(--shadow);
+}
+
+/* "Mahlzeit!" Popup */
 .popup {
     position: fixed;
-    top: 15px;
-    right: 15px;
-    background: #b08a6d;
+    top: 20px;
+    right: 20px;
+    background: rgba(181, 136, 99, 0.95);
     color: white;
-    padding: 15px 25px;
+    padding: 18px 28px;
     border-radius: 15px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 20px var(--shadow);
     font-size: 18px;
     font-weight: 600;
     opacity: 0;
     animation: fadePopup 6s infinite ease-in-out;
 }
 
-/* Popup Fade Animation */
+/* Popup Animation */
 @keyframes fadePopup {
     0% { opacity: 0; transform: translateY(-10px); }
     10% { opacity: 1; transform: translateY(0); }
