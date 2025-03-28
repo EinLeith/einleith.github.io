@@ -31,51 +31,162 @@
     </script>
 </head>
 <body>
-    <div class="popup">Mahlzeit! ☕🍪</div>
-    
-    <div class="container">
-        <h1><i class="fas fa-cookie-bite"></i>Excel Formatter</h1>
-        <p class="subtitle">Convert your Excel data while enjoying some virtual cookies! 🍪</p>
-        
-        <div class="option">
-            <h2><i class="fas fa-file-upload"></i> Upload Excel File</h2>
-            <form id="upload-form">
-                <input type="file" id="xlsxFile" accept=".xlsx" class="form-control">
-                <button type="submit" class="btn custom-btn">Upload</button>
-            </form>
-        </div>
+<div class="popup">Mahlzeit! ☕🍪</div>
 
-        <div class="option">
-            <h2><i class="fas fa-paste"></i> Paste Data</h2>
-            <form id="paste-form">
-                <textarea id="excelData" placeholder="Paste your Excel data here" class="form-control"></textarea>
-                <button type="submit" class="btn custom-btn">Format Data</button>
-            </form>
-        </div>
+<div class="container main-container">
+    <h1><i class="fas fa-cookie-bite"></i>Excel Formatter</h1>
+    <p class="subtitle">Convert your Excel data while enjoying some virtual cookies! 🍪</p>
 
-        <div id="formatted-text-container">
-            <h2><i class="fas fa-text-width"></i> Formatted Text</h2>
-            <pre id="formatted-text"></pre>
-            <button id="copy-button" class="btn custom-btn"><i class="fas fa-copy"></i> Copy Text</button>
-        </div>
+    <div class="option">
+        <h2><i class="fas fa-file-upload"></i> Upload Excel File</h2>
+        <form id="upload-form">
+            <input type="file" id="xlsxFile" accept=".xlsx" class="form-control">
+            <button type="submit" class="btn custom-btn">Upload</button>
+        </form>
     </div>
-    
-    <div class="cookie-clicker" style="position: fixed; right: 10px; bottom: 50px; opacity: 0.8;">
-        <h2 style="font-size: 1.2rem;">🍪 Cookie Clicker</h2>
-        <p style="font-size: 0.9rem;">Click for cookies!</p>
-        <div class="cookie-container">
-            <span id="cookie" style="font-size: 50px; cursor: pointer;">🍪</span>
-        </div>
-        <p>Cookies: <span id="cookie-count">0</span></p>
-        <p>High Score: <span id="high-score">0</span></p>
+
+    <div class="option">
+        <h2><i class="fas fa-paste"></i> Paste Data</h2>
+        <form id="paste-form">
+            <textarea id="excelData" placeholder="Paste your Excel data here" class="form-control"></textarea>
+            <button type="submit" class="btn custom-btn">Format Data</button>
+        </form>
     </div>
-    
-    <a href="https://github.com/EinLeith/einleith.github.io/tree/main" target="_blank" class="github-button">
-        <i class="fab fa-github"></i> View on GitHub
-    </a>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-    <script src="script.js"></script>
+
+    <div id="formatted-text-container">
+        <h2><i class="fas fa-text-width"></i> Formatted Text</h2>
+        <pre id="formatted-text"></pre>
+        <button id="copy-button" class="btn custom-btn"><i class="fas fa-copy"></i> Copy Text</button>
+    </div>
+</div>
+
+<div class="cookie-clicker" style="position: fixed; right: 10px; bottom: 50px; opacity: 0.8;">
+    <h2 style="font-size: 1.2rem;">🍪 Cookie Clicker</h2>
+    <p style="font-size: 0.9rem;">Click for cookies!</p>
+    <div class="cookie-container">
+        <span id="cookie" style="font-size: 50px; cursor: pointer;">🍪</span>
+    </div>
+    <p>Cookies: <span id="cookie-count">0</span></p>
+    <p>High Score: <span id="high-score">0</span></p>
+</div>
+
+<a href="https://github.com/EinLeith/einleith.github.io/tree/main" target="_blank" class="github-button">
+    <i class="fab fa-github"></i> View on GitHub
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+<script src="script.js"></script>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .anleitung-container {
+        position: fixed;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 200px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        font-size: 14px;
+        z-index: 1000;
+    }
+
+    .anleitung-step {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .icon {
+        font-size: 18px;
+    }
+
+    .main-container {
+        max-width: 800px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .translate-button {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 15px;
+        background: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<button class="translate-button" onclick="translatePage()">🇩🇪 Translate</button>
+
+<div class="anleitung-container">
+    <h3 class="translatable">📖 Anleitung</h3>
+    <div class="anleitung-step">
+        <span class="icon">📂</span>
+        <p class="translatable"><strong>1:</strong> Datei wählen oder per Drag & Drop hochladen.</p>
+    </div>
+    <div class="anleitung-step">
+        <span class="icon">⚙️</span>
+        <p class="translatable"><strong>2:</strong> Datei wird in Markdown-Tabellen umgewandelt.</p>
+    </div>
+    <div class="anleitung-step">
+        <span class="icon">🍪</span>
+        <p class="translatable"><strong>3:</strong> Klicke auf den Cookie, um Punkte zu sammeln!</p>
+    </div>
+    <div class="anleitung-step">
+        <span class="icon">🌙</span>
+        <p class="translatable"><strong>Tipp:</strong> Dark Mode für angenehmes Arbeiten.</p>
+    </div>
+</div>
+
+<div class="main-container">
+    <!-- Dein Hauptinhalt bleibt hier zentriert -->
+</div>
+
+<script>
+    let isTranslated = false;
+
+    function translatePage() {
+        const translations = {
+            "📖 Anleitung": "📖 Instructions",
+            "1: Datei wählen oder per Drag & Drop hochladen.": "1: Select a file or drag & drop it.",
+            "2: Datei wird in Markdown-Tabellen umgewandelt.": "2: The file is converted into Markdown tables.",
+            "3: Klicke auf den Cookie, um Punkte zu sammeln!": "3: Click on the cookie to earn points!",
+            "Tipp: Dark Mode für angenehmes Arbeiten.": "Tip: Use Dark Mode for a comfortable experience."
+        };
+
+        document.querySelectorAll(".translatable").forEach(el => {
+            el.textContent = isTranslated ? Object.keys(translations).find(key => translations[key] === el.textContent) || el.textContent : translations[el.textContent] || el.textContent;
+        });
+
+        isTranslated = !isTranslated;
+
+        const button = document.querySelector(".translate-button");
+        button.textContent = isTranslated ? "🇬🇧 Back to German" : "🇩🇪 Translate";
+    }
+</script>
+
 </body>
 </html>
 
