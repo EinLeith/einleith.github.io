@@ -27,6 +27,20 @@
                     localStorage.setItem("highScore", highScore);
                 }
             });
+
+            const darkModeToggle = document.getElementById("dark-mode-toggle");
+            const body = document.body;
+            const currentTheme = localStorage.getItem("theme");
+
+            if (currentTheme) {
+                body.classList.add(currentTheme);
+            }
+
+            darkModeToggle.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
+                const theme = body.classList.contains("dark-mode") ? "dark-mode" : "light-mode";
+                localStorage.setItem("theme", theme);
+            });
         });
     </script>
 </head>
@@ -73,6 +87,8 @@
 <a href="https://github.com/EinLeith/einleith.github.io/tree/main" target="_blank" class="github-button">
     <i class="fab fa-github"></i> View on GitHub
 </a>
+
+<button id="dark-mode-toggle" class="dark-mode-toggle">🌙 Dark Mode</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 <script src="script.js"></script>
@@ -183,7 +199,7 @@
         isTranslated = !isTranslated;
 
         const button = document.querySelector(".translate-button");
-        button.textContent = isTranslated ? "🇬🇧 Back to German" : "🇩🇪 Translate";
+        button.textContent = isTranslated ? "🇬🇧 Back to English" : "🇩🇪 Translate";
     }
 </script>
 
@@ -206,5 +222,56 @@
     }
     .github-button:hover {
         background-color: #4a2f21;
+    }
+
+    .dark-mode-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        z-index: 1000;
+        border: none;
+        transition: background 0.3s ease;
+    }
+
+    .dark-mode-toggle:hover {
+        background-color: #555;
+    }
+
+    .dark-mode {
+        background-color: #121212;
+        color: white;
+    }
+
+    .dark-mode .anleitung-container {
+        background: rgba(50, 50, 50, 0.9);
+        color: white;
+    }
+
+    .dark-mode .container {
+        background: #1e1e1e;
+        color: white;
+        border: 1px solid #333;
+    }
+
+    .dark-mode textarea, .dark-mode input {
+        background: #333;
+        color: white;
+        border: 1px solid #555;
+    }
+
+    .dark-mode .btn.custom-btn {
+        background: #444;
+        color: white;
+        border: 1px solid #666;
+    }
+
+    .dark-mode .btn.custom-btn:hover {
+        background: #555;
     }
 </style>
