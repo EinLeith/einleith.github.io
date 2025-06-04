@@ -45,6 +45,29 @@
         });
     </script>
 </head>
+<button id="privacy-btn" class="btn custom-btn" style="position:fixed;bottom:10px;right:220px;z-index:2000;">
+    <i class="fas fa-shield-alt"></i> Datenschutz
+</button>
+
+<!-- Datenschutz-Popup -->
+<div id="privacy-popup" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);z-index:3000;justify-content:center;align-items:center;">
+    <div style="background:#fff;padding:28px 22px;border-radius:12px;max-width:400px;box-shadow:0 4px 16px rgba(0,0,0,0.25);text-align:left;position:relative;">
+        <button id="close-privacy" class="btn btn-sm btn-outline-secondary" style="position:absolute;top:10px;right:10px;">&times;</button>
+        <h3 style="margin-top:0;"><i class="fas fa-shield-alt"></i> Datenschutzhinweis</h3>
+        <p style="font-size:15px;">
+            Diese Website speichert keine personenbezogenen Daten. Für die Cookie-Highscore-Funktion wird ausschließlich der Highscore lokal im Browser gespeichert. Externe Ressourcen (z.B. Google Fonts, Bootstrap) können IP-Adressen an Dritte übertragen. Für volle DSGVO-Konformität sollten diese lokal eingebunden werden. Weitere Infos siehe Datenschutzerklärung.
+        </p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('privacy-btn').onclick = function() {
+        document.getElementById('privacy-popup').style.display = 'flex';
+    };
+    document.getElementById('close-privacy').onclick = function() {
+        document.getElementById('privacy-popup').style.display = 'none';
+    };
+</script>
 <body>
 <div class="popup">Mahlzeit! ☕🍪</div>
 

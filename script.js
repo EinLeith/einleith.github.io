@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.getElementById('paste-form').addEventListener('submit', function (e) {
-        e.preventDefault();
+        e.preventDefault(); 
         const excelData = document.getElementById('excelData').value;
         const formattedText = convertPastedDataToMarkdownTable(excelData);
         document.getElementById('formatted-text').textContent = formattedText;
