@@ -59,7 +59,47 @@
         </p>
     </div>
 </div>
+<!-- Social Share Button -->
+<button id="share-btn" class="btn custom-btn" style="position:fixed;bottom:10px;right:400px;z-index:2000;">
+    <i class="fas fa-share-alt"></i> Teilen
+</button>
 
+<!-- Social Share Popup -->
+<div id="share-popup" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);z-index:3000;justify-content:center;align-items:center;">
+    <div style="background:#fff;padding:28px 22px;border-radius:12px;max-width:350px;box-shadow:0 4px 16px rgba(0,0,0,0.25);text-align:center;position:relative;">
+        <button id="close-share" class="btn btn-sm btn-outline-secondary" style="position:absolute;top:10px;right:10px;">&times;</button>
+        <h3 style="margin-top:0;"><i class="fas fa-share-alt"></i> Teilen</h3>
+        <div style="display:flex;justify-content:center;gap:24px;margin:20px 0;">
+            <a href="#" id="share-facebook" title="Auf Facebook teilen" style="font-size:2rem;color:#4267B2;"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" id="share-twitter" title="Auf Twitter teilen" style="font-size:2rem;color:#1DA1F2;"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" id="share-instagram" title="Auf Instagram teilen" style="font-size:2rem;color:#C13584;"><i class="fab fa-instagram-square"></i></a>
+        </div>
+        <p style="font-size:14px;">Teile diese Website auf Social Media!</p>
+    </div>
+</div>
+
+<script>
+    // Popup öffnen/schließen
+    document.getElementById('share-btn').onclick = function() {
+        document.getElementById('share-popup').style.display = 'flex';
+    };
+    document.getElementById('close-share').onclick = function() {
+        document.getElementById('share-popup').style.display = 'none';
+    };
+
+    // Teilen-Links
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    document.getElementById('share-facebook').href =
+        `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    document.getElementById('share-twitter').href =
+        `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+    document.getElementById('share-instagram').onclick = function(e) {
+        e.preventDefault();
+        alert('Direktes Teilen auf Instagram ist technisch nicht möglich. Bitte kopiere den Link und teile ihn manuell.');
+    };
+</script>
 <script>
     document.getElementById('privacy-btn').onclick = function() {
         document.getElementById('privacy-popup').style.display = 'flex';
