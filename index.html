@@ -78,6 +78,36 @@
     </div>
 </div>
 
+
+<!-- Impressum-Button -->
+<button id="about-btn" class="btn custom-btn" style="position:fixed;bottom:10px;right:525px;z-index:2000;">
+    <i class="fas fa-info-circle"></i> Impressum
+</button>
+
+<!-- Impressum-Popup -->
+<div id="about-popup" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);z-index:3000;justify-content:center;align-items:center;">
+    <div style="background:#fff;padding:28px 22px;border-radius:12px;max-width:400px;box-shadow:0 4px 16px rgba(0,0,0,0.25);text-align:left;position:relative;">
+        <button id="close-about" class="btn btn-sm btn-outline-secondary" style="position:absolute;top:10px;right:10px;">&times;</button>
+        <h3><i class="fas fa-info-circle"></i> Impressum & Über</h3>
+        <p><strong>Projekt:</strong> Excel Formatter für Mantis</p>
+        <p><strong>Autor:</strong> Leith Al-Shalbi</p>
+        <p><strong>Kontakt:</strong> <a href="mailto:leith.alshalbi@analytic-company.com?subject=Contact%20regarding%20the%20Website">Email</a></p>
+        <p>Quellcode: <a href="https://github.com/EinLeith/einleith.github.io/tree/main" target="_blank">GitHub</a></p>
+        <p style="font-size:13px;">Dieses Projekt ist Open Source und dient nur Demonstrationszwecken.</p>
+    </div>
+</div>
+
+<script>
+
+    // Impressum-Popup
+    document.getElementById('about-btn').onclick = function() {
+        document.getElementById('about-popup').style.display = 'flex';
+    };
+    document.getElementById('close-about').onclick = function() {
+        document.getElementById('about-popup').style.display = 'none';
+    };
+</script>
+
 <script>
     // Popup öffnen/schließen
     document.getElementById('share-btn').onclick = function() {
@@ -108,6 +138,7 @@
         document.getElementById('privacy-popup').style.display = 'none';
     };
 </script>
+
 <body>
 <div class="popup">Mahlzeit! ☕🍪</div>
 
@@ -135,9 +166,10 @@
         <h2><i class="fas fa-text-width"></i> Formatted Text</h2>
         <pre id="formatted-text"></pre>
         <button id="copy-button" class="btn custom-btn"><i class="fas fa-copy"></i> Copy Text</button>
-    </div>
-</div>
 
+    </div>
+
+</div>
 <div class="cookie-clicker" style="position: fixed; right: 10px; bottom: 50px; opacity: 0.8;">
     <h2 style="font-size: 1.2rem;">🍪 Cookie Clicker</h2>
     <p style="font-size: 0.9rem;">Click for cookies!</p>
