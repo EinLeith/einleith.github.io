@@ -1,0 +1,15 @@
+{
+  "name": "Excel Formatter",
+  "short_name": "Formatter",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Convert your Excel data for use in Mantis",
+  "icons": [
+    {
+      "src": "images/icons8-microsoft-excel-2019-16.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahlzeit</title>
@@ -43,7 +44,28 @@
                 localStorage.setItem("theme", theme);
             });
         });
+        let deferredPrompt;
+        const installBtn = document.createElement('button');
+        installBtn.textContent = 'App installieren';
+        installBtn.style.position = 'fixed';
+        installBtn.style.bottom = '10px';
+        installBtn.style.left = '10px';
+        installBtn.style.zIndex = '5000';
+        installBtn.style.display = 'none';
+        document.body.appendChild(installBtn);
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', () => {
+            installBtn.style.display = 'none';
+            deferredPrompt.prompt();
+        });
     </script>
+
 </head>
 <button id="privacy-btn" class="btn custom-btn" style="position:fixed;bottom:10px;right:220px;z-index:2000;">
     <i class="fas fa-shield-alt"></i> Datenschutz
@@ -298,7 +320,11 @@
         button.textContent = isTranslated ? "🇬🇧 Back to English" : "🇩🇪 Translate";
     }
 </script>
-
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+    }
+</script>
 </body>
 </html>
 
